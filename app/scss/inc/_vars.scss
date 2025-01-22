@@ -1,0 +1,19 @@
+// colors
+$text: #212529;
+$accentColor: #f1d430;
+$secondaryAccentColor: #888888;
+
+// fonts
+$mainFont: 'Titillium Web', sans-serif;
+//
+
+@mixin itemGrid($n, $gap) {
+  width: calc(100% / #{$n} - #{$gap}px + #{$gap}px / #{$n});
+  margin-right: #{$gap}px;
+  &:nth-child(#{$n + 1}n){
+    margin-right: #{$gap}px;
+  }
+  &:nth-child(#{$n}n){
+    margin-right: 0;
+  }
+}
