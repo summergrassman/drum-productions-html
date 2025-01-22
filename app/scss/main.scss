@@ -25,10 +25,14 @@ section {
 	align-items: flex-start;
     flex-wrap: wrap;
 	justify-content: flex-start;
+	@include mq-inv-tablet {
+		overflow: hidden;
+	}
 }
 
 main {
 	position: relative;
+	height: 5000px;
 }
 //header & common
 @import 'parts/header';

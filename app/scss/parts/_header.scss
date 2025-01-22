@@ -1,34 +1,143 @@
-.header {
-  & .navigation-block-wrapper {
-    border-top: 1px solid $accentColor;
-    background-color: $backgroundColorOne;
-    padding: 2.5rem 0;
-    & .main-menu-wrapper {
+body {
+  //&.home {
+  //  & .header {
+  //    & .navigation-block-wrapper {
+  //      border-top: 1px solid transparent;
+  //      background-color: transparent;
+  //    }
+  //  }
+  //}
+  & .header {
+    & .navigation-block-wrapper {
       width: 100%;
-      & .mobile-menu-control-block {
-        display: none;
+      border-top: 1px solid $accentColor;
+      background-color: $backgroundColorOne;
+      padding: 2.5rem 0;
+      &.fixed-top-menu {
+        position: fixed;
+        top: 0;
+        padding: 1.5rem 0;
+        z-index: 100;
+        & .main-menu-logo-link {
+          max-width: 6.25rem;
+        }
       }
-      & .main-menu-body-block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        & .main-menu-part {
-          display: flex;
-          & .main-menu-item {
-            margin-right: 1.25rem;
-            &:last-child {
-              margin-right: 0;
-            }
-            & .main-menu-link {
-              font-size: 1.125rem;
-              text-transform: uppercase;
-              color: $secondaryAccentColor;
+      @include mq-inv-tablet-minified {
+        padding: 1.5rem 0;
+      }
+      & .main-menu-wrapper {
+        width: 100%;
+        & .mobile-menu-control-block {
+          display: none;
+          justify-content: center;
+          position: relative;
+          @include mq-inv-tablet-minified {
+            display: flex;
+          }
+          & .mobile-menu-toggle-btn {
+            position: absolute;
+            width: 1.6875rem;
+            height: 1.75rem;
+            background: url(../img/icon_menu_toggle_default.svg) no-repeat center;
+            border-radius: 0;
+            padding: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -10px;
+            z-index: 10;
+            &.active {
+              background: url(../img/icon_menu_toggle_active.svg) no-repeat center;
             }
           }
         }
-        & .main-menu-logo-wrapper {
-          & .main-menu-logo-link {
-            display: block;
+        & .main-menu-logo-link {
+          display: block;
+          @include mq-inv-tablet-minified {
+            max-width: 6.25rem;
+          }
+        }
+        & .main-menu-body-block {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          @include mq-inv-tablet-minified {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            &.open-menu {
+              display: flex;
+            }
+          }
+          & .main-menu-part {
+            display: flex;
+            @include mq-inv-tablet-minified {
+              flex-direction: column;
+              align-items: center;
+            }
+            & .main-menu-item {
+              margin-right: 2.5rem;
+              position: relative;
+              @include mq-inv-tablet-minified {
+                margin-right: 0;
+              }
+              &:after {
+                content: "";
+                display: block;
+                width: 5px;
+                height: 5px;
+                background-color: $thirdAccentColor;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: -1.4rem;
+                @include mq-inv-tablet-minified {
+                  display: none;
+                }
+              }
+              &:last-child {
+                margin-right: 0;
+                &:after {
+                  display: none;
+                }
+              }
+              &.active {
+                & .main-menu-link {
+                  color: $whiteColor;
+                  &:after {
+                    border-bottom: 1px solid $accentColor;
+                  }
+                }
+              }
+              & .main-menu-link {
+                display: block;
+                font-size: 1.125rem;
+                line-height: 1.5;
+                text-transform: uppercase;
+                color: $secondaryAccentColor;
+                transition: all 0.5s ease;
+                @include mq-inv-tablet-minified {
+                  padding: 0.5rem 0;
+                }
+                &:after {
+                  content: "";
+                  display: block;
+                  border-bottom: 1px solid transparent;
+                }
+                &:hover {
+                  color: $whiteColor;
+                }
+              }
+            }
+          }
+          & .main-menu-logo-wrapper {
+            &.main-menu-logo-wrapper--tablet {
+              @include mq-inv-tablet-minified {
+                display: none;
+              }
+              & .main-menu-logo-link {
+                padding: 0.3125rem 0;
+              }
+            }
           }
         }
       }

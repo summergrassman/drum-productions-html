@@ -35,6 +35,12 @@
   }
 }
 
+@mixin mq-inv-tablet-minified {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+
 @mixin mq-inv-tablet {
   @media screen and (max-width: 1024px) {
     @content;
