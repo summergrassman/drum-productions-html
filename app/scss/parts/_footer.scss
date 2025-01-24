@@ -1,0 +1,104 @@
+.footer {
+  background-color: $backgroundColorOne;
+  padding: 3.125rem 0;
+  color: $whiteColor;
+  position: relative;
+
+  & .social-buttons-wrapper {
+    display: inline-flex;
+    justify-content: space-between;
+    position: absolute;
+    top: -1.375rem;
+    right: 2.5rem;
+    & .footer-button {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      line-height: 2.75rem;
+      color: $whiteColor;
+      border-radius: 50%;
+      text-align: center;
+      margin: 0 0.125rem;
+      transition: all 0.5s ease;
+      &:hover {
+        transform: translateY(-5px);
+      }
+      &.footer-button--instagram {
+        background-color: $raspberryСolor;
+      }
+      &.footer-button--twitter {
+        background-color: $lightBlueColor;
+      }
+      &.footer-button--facebook {
+        background-color: $blueColor;
+      }
+      &.footer-button--email {
+        background-color: $thirdAccentColor;
+      }
+      &.footer-button--scroll-top {
+        background-color: $nearBlackColor;
+        &:hover {
+          background-color: $accentColor;
+          color: $nearBlackColor;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  & .copyright-block {
+    & .container {
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      text-transform: uppercase;
+      @include mq-inv-tablet-minified {
+        flex-direction: column;
+      }
+      & .copyright-block-text {
+        margin-right: 2.5rem;
+        @include mq-inv-tablet-minified {
+          margin-right: 0;
+        }
+      }
+      & .copyright-block-menu {
+        display: flex;
+        justify-content: space-between;
+        @include mq-inv-tablet-minified {
+          flex-direction: column;
+          align-items: center;
+        }
+        & .copyright-block-menu-item {
+          position: relative;
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: $thirdAccentColor;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -1.45rem;
+            @include mq-inv-tablet-minified {
+              display: none;
+            }
+          }
+          & .copyright-block-menu-link {
+            font-weight: bold;
+            color: $accentColor;
+            transition: all 0.5s ease;
+            margin-right: 2.5rem;
+            @include mq-inv-tablet-minified {
+              margin-right: 0;
+            }
+            &:hover {
+              color: $whiteColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}
