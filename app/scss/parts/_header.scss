@@ -125,6 +125,7 @@ body {
                 }
                 &:hover {
                   color: $whiteColor;
+                  border-bottom: 1px solid $accentColor;
                 }
               }
             }

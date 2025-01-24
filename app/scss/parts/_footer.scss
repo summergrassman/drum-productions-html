@@ -53,12 +53,51 @@
       font-size: 1.125rem;
       line-height: 1.5;
       text-transform: uppercase;
+      @include mq-inv-tablet-minified {
+        flex-direction: column;
+      }
       & .copyright-block-text {
-        margin-right: 1.25rem;
+        margin-right: 2.5rem;
+        @include mq-inv-tablet-minified {
+          margin-right: 0;
+        }
       }
       & .copyright-block-menu {
         display: flex;
         justify-content: space-between;
+        @include mq-inv-tablet-minified {
+          flex-direction: column;
+          align-items: center;
+        }
+        & .copyright-block-menu-item {
+          position: relative;
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: $thirdAccentColor;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -1.45rem;
+            @include mq-inv-tablet-minified {
+              display: none;
+            }
+          }
+          & .copyright-block-menu-link {
+            font-weight: bold;
+            color: $accentColor;
+            transition: all 0.5s ease;
+            margin-right: 2.5rem;
+            @include mq-inv-tablet-minified {
+              margin-right: 0;
+            }
+            &:hover {
+              color: $whiteColor;
+            }
+          }
+        }
       }
     }
   }
