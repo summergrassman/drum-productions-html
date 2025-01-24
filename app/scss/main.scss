@@ -32,12 +32,16 @@ section {
 
 main {
 	position: relative;
-	height: 500px;
+
 }
 //header & common
 @import 'parts/header';
 @import 'parts/section-title';
 @import 'parts/layout';
+
+//main page sections
+@import "parts/sections/section-hero";
+
 //pages
 //@import 'pages/front_page';
 @import 'pages/page';
