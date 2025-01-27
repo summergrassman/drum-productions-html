@@ -1,6 +1,8 @@
 body {
   &.home {
     & .header {
+      position: absolute;
+      width: 100%;
       & .navigation-block-wrapper {
         border-top: 1px solid transparent;
         background-color: transparent;

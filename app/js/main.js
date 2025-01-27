@@ -34,23 +34,16 @@ $(function () {
 
         for (let i = 0; i < num; i++) {
             (function() {
-                // Variables
-                // ----------------------------------------------------------
-                // audio embed object
                 let player = document.getElementById("audio-player-sample"),
                     isPlaying = false,
                     playBtn = document.getElementById("play-audio-btn");
 
-                // Controls Listeners
-                // ----------------------------------------------------------
                 if (playBtn != null) {
                     playBtn.addEventListener("click", function() {
                         togglePlay();
                     });
                 }
 
-                // Controls & Sounds Methods
-                // ----------------------------------------------------------
                 function togglePlay() {
                     let innerPlayBtn = $("#play-audio-btn");
                     let decorPlayBtn = innerPlayBtn.find(".audio-btn-label");
@@ -74,4 +67,19 @@ $(function () {
     }
 
     initPlayers($(initialPlayerContainer).length);
+
+    // Partners logo carousel
+    const swiper = new Swiper('.swiper--partners-swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 5,
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.control-partner-logo--next',
+            prevEl: '.control-partner-logo--prev',
+        }
+    });
+
 });
