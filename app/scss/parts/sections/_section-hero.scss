@@ -52,6 +52,53 @@
           margin-bottom: 2rem;
         }
       }
+
+      // Audio player styles
+      & .audio-player-wrapper {
+        height: 2.75rem;
+        background: url("../img/decor_equalizer_bar.svg") no-repeat center $backgroundColorOne;
+        background-size: cover;
+        color: $whiteColor;
+        border-radius: 23px;
+        text-align: center;
+        box-shadow: 5px 9px 10px rgba(0, 1, 0, 0.09);
+        position: relative;
+        & .play-audio-btn {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: $accentColor;
+          background-size: cover;
+          color: $whiteColor;
+          border-radius: 50%;
+          text-align: center;
+          width: 2.75rem;
+          height: 2.75rem;
+          transform: translateX(-1px);
+          border: none;
+          & .audio-btn-label {
+            color: $backgroundColorOne;
+            &:after {
+              content: "PLAY";
+              color: $whiteColor;
+              font-size: 0.75rem;
+              font-weight: bold;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              left: 3.75rem;
+            }
+
+          }
+          &.pause {
+            & .audio-btn-label {
+              &:after {
+                content: "PAUSE";
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

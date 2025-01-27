@@ -26,4 +26,52 @@ $(function () {
     }
 
     mobileMenuToggleBtn.on("click", toggleMobileMenu);
+
+    // Audio player control
+
+    let initialPlayerContainer = document.getElementById("player-container");
+    function initPlayers(num) {
+
+        for (let i = 0; i < num; i++) {
+            (function() {
+                // Variables
+                // ----------------------------------------------------------
+                // audio embed object
+                let player = document.getElementById("audio-player-sample"),
+                    isPlaying = false,
+                    playBtn = document.getElementById("play-audio-btn");
+
+                // Controls Listeners
+                // ----------------------------------------------------------
+                if (playBtn != null) {
+                    playBtn.addEventListener("click", function() {
+                        togglePlay();
+                    });
+                }
+
+                // Controls & Sounds Methods
+                // ----------------------------------------------------------
+                function togglePlay() {
+                    let innerPlayBtn = $("#play-audio-btn");
+                    let decorPlayBtn = innerPlayBtn.find(".audio-btn-label");
+                    console.log(decorPlayBtn);
+                    if (player.paused === false) {
+                        player.pause();
+                        isPlaying = false;
+                        jQuery(innerPlayBtn).removeClass("pause");
+                        decorPlayBtn.removeClass("fa-pause");
+                        decorPlayBtn.addClass("fa-play");
+                    } else {
+                        player.play();
+                        jQuery(innerPlayBtn).addClass("pause");
+                        decorPlayBtn.removeClass("fa-play");
+                        decorPlayBtn.addClass("fa-pause");
+                        isPlaying = true;
+                    }
+                }
+            })();
+        }
+    }
+
+    initPlayers($(initialPlayerContainer).length);
 });
