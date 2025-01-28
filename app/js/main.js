@@ -82,4 +82,22 @@ $(function () {
         }
     });
 
+    // Video player control scripts
+    let video = document.getElementById("video");
+    let playerBtn = document.getElementById("player-button");
+    let playBtnDecor = document.getElementById("play-pause");
+    let videoOverlay = document.getElementById("video-overlay");
+    let videoScreen = document.querySelector(".video-screen");
+
+    playerBtn.addEventListener("click", () => {
+        videoOverlay.remove();
+        if (video.paused) {
+            playBtnDecor.className = "fas fa-pause";
+            video.play();
+        } else {
+            videoScreen.appendChild(videoOverlay);
+            playBtnDecor.className = "fas fa-play";
+            video.pause();
+        }
+    });
 });
