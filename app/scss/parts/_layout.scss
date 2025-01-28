@@ -1,3 +1,9 @@
+.section {
+  &.section--content {
+    padding: 11.25rem 0;
+  }
+}
+
 .general-button {
   display: inline-flex;
   justify-content: center;

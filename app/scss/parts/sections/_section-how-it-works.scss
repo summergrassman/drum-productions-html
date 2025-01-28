@@ -1,0 +1,127 @@
+.section--how-it-works {
+  background-color: $whiteColor;
+  & .container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .brief-info-for-users {
+    display: flex;
+    justify-content: space-between;
+    @include mq-inv-tablet-minified {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    & .brief-info-block {
+      display: flex;
+      flex-direction: column;
+      &.brief-info-block--actions {
+        width: 41%;
+        @include mq-inv-tablet-minified {
+          width: 100%;
+        }
+      }
+      &.brief-info-block--video-wrapper {
+        width: 58%;
+        @include mq-inv-tablet-minified {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // Action items styles
+
+  & .brief-info-block--actions {
+    & .action-item {
+      display: flex;
+      margin-bottom: 2.5rem;
+      & .action-item-img-decor {
+        width: 4.6875rem;
+        min-width: 4.6875rem;
+        height: 4.6875rem;
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: 900;
+        border-radius: 25px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        color: $accentColor;
+        margin-right: 1.875rem;
+        &.action-item-img-decor--one {
+          background: url("/img/img_decor_step1.png") center no-repeat;
+          background-size: cover;
+        }
+        &.action-item-img-decor--two {
+          background: url("/img/img_decor_step2.png") center no-repeat;
+          background-size: cover;
+        }
+        &.action-item-img-decor--three {
+          background: url("/img/img_decor_step3.png") center no-repeat;
+          background-size: cover;
+        }
+      }
+
+      & .action-item-text {
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.125rem;
+        font-weight: 300;
+        width: 100%;
+        max-width: 15.625rem;
+      }
+    }
+  }
+
+  // Video block styles
+
+  & .video-wrap {
+    box-shadow: 0 5rem 5.625rem -5rem rgba(68, 68, 68, 1);
+  }
+
+  & .video-wrap,
+  & .video-screen {
+    position: relative;
+    line-height: 0;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  & .video-screen {
+    & .video-drum-el {
+      width: 100%;
+      height: auto;
+    }
+
+    & .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url("../img/thumbnail_video1_.png") no-repeat center;
+      background-size: cover;
+      //opacity: 0.8;
+      z-index: 1;
+      border-radius: 20px;
+    }
+
+    & .player-button {
+      width: 80px;
+      height: 80px;
+      border: none;
+      background-color: $accentColor;
+      padding: 0;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      z-index: 10;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
