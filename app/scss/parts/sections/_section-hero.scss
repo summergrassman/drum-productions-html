@@ -1,8 +1,12 @@
 .section--hero {
   min-height: 100vh;
   background: url("../img/img_bg_top_section.jpg") no-repeat center;
-  padding-top: 20rem;
+  padding-top: 18rem;
+  padding-bottom: 6rem;
   color: $secondaryAccentColor;
+  @include mq-inv-tablet-minified {
+    padding-top: 6.75rem;
+  }
   & .container {
     padding: 0 4.0625rem;
 
@@ -12,6 +16,9 @@
       display: flex;
       position: relative;
       margin-bottom: 5rem;
+      @include mq-inv-tablet-minified {
+        flex-direction: column;
+      }
       &:after {
         content: "";
         display: block;
@@ -21,20 +28,42 @@
         top: 0;
         left: 50%;
         transform: translateX(50%);
+        @include mq-inv-tablet-minified {
+          display: none;
+        }
       }
       & .hero-content-column {
         width: 50%;
         padding-top: 1.5rem;
         padding-bottom: 7.75rem;
+        @include mq-inv-tablet-minified {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
         &.hero-content-column--audio {
           padding-left: 0.9375rem;
           padding-right: 2.5rem;
           text-align: end;
+          @include mq-inv-tablet-minified {
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 3.125rem;
+            text-align: center;
+          }
         }
         &.hero-content-column--contacts {
           padding-left: 2.5rem;
           padding-right: 0.9375rem;
           text-align: start;
+          @include mq-inv-tablet-minified {
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            text-align: center;
+          }
         }
         & .hero-content-heading {
           color: $secondaryAccentColor;
@@ -56,6 +85,14 @@
       }
 
       // Audio player styles
+      & .control-panel-wrapper {
+        width: 100%;
+        @include mq-inv-tablet-minified {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
       & .audio-player-wrapper {
         height: 2.75rem;
         background: url("../img/decor_equalizer_bar.svg") no-repeat center $backgroundColorOne;
@@ -65,6 +102,10 @@
         text-align: center;
         box-shadow: 5px 9px 10px rgba(0, 1, 0, 0.09);
         position: relative;
+        @include mq-inv-tablet-minified {
+          width: 100%;
+          max-width: 18.75rem;
+        }
         & .play-audio-btn {
           position: absolute;
           top: 0;
@@ -105,12 +146,25 @@
       // Buttons block styles
       & .buttons-block-wrapper {
         display: flex;
+        width: 100%;
+        @include mq-inv-tablet-minified {
+          flex-direction: column;
+          align-items: center;
+        }
         & .general-button {
           width: 100%;
           max-width: 14.46875rem;
           margin-right: 0.75rem;
+          @include mq-inv-tablet-minified {
+            max-width: 18.75rem;
+            margin-right: 0;
+            margin-bottom: 1.25rem;
+          }
           &:last-child {
             margin-right: 0;
+            @include mq-inv-tablet-minified {
+              margin-bottom: 0;
+            }
           }
         }
       }
@@ -121,10 +175,70 @@
       display: flex;
       justify-content: center;
       width: 100%;
+      z-index: 0;
       & .swiper {
         width: 100%;
         max-width: 48.75rem;
-        height: 6.625rem
+        position: relative;
+        padding-bottom: 1.625rem;
+        &:before,
+        &:after {
+          position: absolute;
+          top: 0;
+          width: 50px;
+          height: 40px;
+          content: "";
+          z-index: 10;
+        }
+        &:before {
+          left: 0;
+          background: linear-gradient(to right, $backgroundColorOne 20%, transparent 70%);
+        }
+        &:after {
+          right: 0;
+          background: linear-gradient(to left, $backgroundColorOne 20%, transparent 70%);
+        }
+        & .partner-slide {
+          width: auto !important;
+          height: 2.5rem;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-right: 3rem;
+          margin-bottom: 2.5rem;
+        }
+        & .slider-control-buttons-block {
+          position: absolute;
+          width: 100%;
+          display: block;
+          bottom: 0;
+          & .slider-control-buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 1.625rem;
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              border-right: 2px solid $secondaryAccentColor;
+              top: 0;
+              height: 100%;
+            }
+            & .control-partner-logo {
+              display: inline-block;
+              color: $whiteColor;
+              transition: all 200ms ease;
+              margin: 0 0.625rem;
+              padding: 0 0.375rem;
+              &:hover {
+                cursor: pointer;
+                color: $accentColor;
+              }
+            }
+          }
+        }
       }
     }
   }
