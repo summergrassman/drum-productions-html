@@ -1,0 +1,43 @@
+.general-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $backgroundColorTwo;
+  color: $whiteColor;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 23px;
+  border: none;
+  height: 2.75rem;
+  transition: all 0.5s ease;
+  &:hover {
+    color: $backgroundColorTwo;
+    background-color: $accentColor;
+  }
+  &.general-button--with-icon {
+    padding-left: 2.75rem;
+    position: relative;
+  }
+
+  & .button-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 2.75rem;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+    color: $backgroundColorTwo;
+    background-color: $accentColor;
+    border-radius: 50%;
+    & i {
+      font-size: 1.125rem;
+    }
+  }
+
+  & .button-text {
+
+  }
+}

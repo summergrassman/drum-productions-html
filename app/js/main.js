@@ -26,4 +26,60 @@ $(function () {
     }
 
     mobileMenuToggleBtn.on("click", toggleMobileMenu);
+
+    // Audio player control
+
+    let initialPlayerContainer = document.getElementById("player-container");
+    function initPlayers(num) {
+
+        for (let i = 0; i < num; i++) {
+            (function() {
+                let player = document.getElementById("audio-player-sample"),
+                    isPlaying = false,
+                    playBtn = document.getElementById("play-audio-btn");
+
+                if (playBtn != null) {
+                    playBtn.addEventListener("click", function() {
+                        togglePlay();
+                    });
+                }
+
+                function togglePlay() {
+                    let innerPlayBtn = $("#play-audio-btn");
+                    let decorPlayBtn = innerPlayBtn.find(".audio-btn-label");
+                    console.log(decorPlayBtn);
+                    if (player.paused === false) {
+                        player.pause();
+                        isPlaying = false;
+                        jQuery(innerPlayBtn).removeClass("pause");
+                        decorPlayBtn.removeClass("fa-pause");
+                        decorPlayBtn.addClass("fa-play");
+                    } else {
+                        player.play();
+                        jQuery(innerPlayBtn).addClass("pause");
+                        decorPlayBtn.removeClass("fa-play");
+                        decorPlayBtn.addClass("fa-pause");
+                        isPlaying = true;
+                    }
+                }
+            })();
+        }
+    }
+
+    initPlayers($(initialPlayerContainer).length);
+
+    // Partners logo carousel
+    const swiper = new Swiper('.swiper--partners-swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 5,
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.control-partner-logo--next',
+            prevEl: '.control-partner-logo--prev',
+        }
+    });
+
 });

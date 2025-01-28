@@ -1,13 +1,21 @@
 body {
-  //&.home {
-  //  & .header {
-  //    & .navigation-block-wrapper {
-  //      border-top: 1px solid transparent;
-  //      background-color: transparent;
-  //    }
-  //  }
-  //}
+  &.home {
+    & .header {
+      position: absolute;
+      width: 100%;
+      & .navigation-block-wrapper {
+        border-top: 1px solid transparent;
+        background-color: transparent;
+        @include mq-inv-tablet-minified {
+          border-top: 1px solid $accentColor;
+          background-color: $backgroundColorOne;
+        }
+      }
+    }
+  }
   & .header {
+    position: relative;
+    z-index: 1;
     & .navigation-block-wrapper {
       width: 100%;
       border-top: 1px solid $accentColor;
@@ -18,11 +26,15 @@ body {
         top: 0;
         padding: 1.5rem 0;
         z-index: 100;
+        border-top: 1px solid $accentColor;
+        background-color: $backgroundColorOne;
         & .main-menu-logo-link {
           max-width: 6.25rem;
         }
       }
       @include mq-inv-tablet-minified {
+        border-top: 1px solid $accentColor;
+        background-color: $backgroundColorOne;
         padding: 1.5rem 0;
       }
       & .main-menu-wrapper {
