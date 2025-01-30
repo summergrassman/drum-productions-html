@@ -5,4 +5,38 @@
     flex-direction: column;
   }
 
+  & .equipment-block-wrapper {
+    & .tab-list--equipment {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3.125rem;
+      & .tab-item--equipment {
+        position: relative;
+        &.active .tab-link {
+          font-weight: bold;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          width: 1px;
+          height: 1.25rem;
+          background-color: transparent;
+          border-right: 1px solid $lightGreyColor;
+        }
+        &:last-child:after {
+          display: none;
+        }
+        & .tab-link {
+          display: block;
+          padding: 0.5rem 1rem;
+          font-size: 1.125rem;
+          color: $backgroundColorOne;
+        }
+      }
+    }
+  }
+
 }
