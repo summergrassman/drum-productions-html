@@ -101,4 +101,67 @@ $(function () {
         }
     });
 
+    // Tabs scripts
+    let tabItem = $(".tab-item");
+
+    function switchTab(e) {
+        e.preventDefault();
+
+        let $this = $(this);
+        let tabTarget = $this.children("a").attr("href");
+
+        // Manage Tab Item
+        $this.siblings().removeClass("active");
+        $this.addClass("active");
+
+        // Manage Tab Content
+        let $tabContainer = $this.parent().siblings(".tab-content");
+        let $tabPanes = $tabContainer.children(".tab-pane");
+
+        $tabPanes.removeClass("active");
+        $tabContainer.find(tabTarget).addClass("active");
+
+    }
+
+    tabItem.on("click", switchTab);
+
+
+    // Control Equipment Tabs from Tab Content
+    let nextEquipmentTab = $(".btn-next-equipment-item");
+    let prevEquipmentTab = $(".btn-prev-equipment-item");
+
+    function activateNextTab(e) {
+        e.preventDefault();
+        let $this = $(this);
+        let $tabList = $this.closest(".tab-content").siblings(".tab-list");
+
+        // Find the active tab item (li element)
+        let $activeTabItem = $tabList.find(".active").closest("li");
+
+        // Get the next tab item
+        let $nextTab = $activeTabItem.next("li");
+        if ($nextTab.length) {
+            $nextTab.find("a").trigger("click");
+        }
+    }
+
+    function activatePrevTab(e) {
+        e.preventDefault();
+        let $this = $(this);
+        let $tabList = $this.closest(".tab-content").siblings(".tab-list");
+
+        // Find the active tab item (li element)
+        let $activeTabItem = $tabList.find(".active").closest("li");
+
+        // Get the previous tab item
+        let $prevTab = $activeTabItem.prev("li");
+        if ($prevTab.length) {
+            $prevTab.find("a").trigger("click");
+        }
+    }
+
+    nextEquipmentTab.on("click", activateNextTab);
+    prevEquipmentTab.on("click", activatePrevTab);
+
+
 });
