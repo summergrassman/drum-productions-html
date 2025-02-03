@@ -32,7 +32,6 @@ section {
 
 main {
 	position: relative;
-
 }
 //header & common
 @import 'parts/header';
@@ -45,6 +44,7 @@ main {
 @import "parts/sections/section-how-it-works";
 @import "parts/sections/section-promo";
 @import "parts/sections/section-equipment";
+
 
 //pages
 //@import 'pages/front_page';

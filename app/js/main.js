@@ -166,5 +166,4 @@ $(function () {
 
     nextEquipmentTab.on("click", activateNextTab);
     prevEquipmentTab.on("click", activatePrevTab);
-
 });
