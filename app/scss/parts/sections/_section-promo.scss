@@ -1,0 +1,42 @@
+.section--promo.section {
+  padding-top: 13.75rem;
+  background-color: $accentColor;
+  @include mq-inv-tablet-minified {
+    padding-top: 13.75rem;
+  }
+  & .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & .img-title {
+    margin-bottom: 2.5rem;
+  }
+
+  & .promo-paragraph {
+    font-size: 2.125rem;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    color: $greyColorText;
+    margin-bottom: 6.875rem;
+    @include mq-inv-tablet-minified {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  & .general-button--suggest-service {
+    max-width: 16.125rem;
+    &:hover {
+      background-color: $backgroundColorTwo;
+      color: $accentColor;
+    }
+
+    & .button-icon-wrapper {
+      background-color: $backgroundColorOne;
+      color: $whiteColor;
+    }
+  }
+}
