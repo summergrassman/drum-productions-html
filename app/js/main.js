@@ -155,13 +155,16 @@ $(function () {
 
         // Get the previous tab item
         let $prevTab = $activeTabItem.prev("li");
+
+        // Check if there's a previous tab, if so, trigger click, otherwise do nothing
         if ($prevTab.length) {
             $prevTab.find("a").trigger("click");
+        } else {
+            console.log("No previous tab to navigate to.");
         }
     }
 
     nextEquipmentTab.on("click", activateNextTab);
     prevEquipmentTab.on("click", activatePrevTab);
-
 
 });
