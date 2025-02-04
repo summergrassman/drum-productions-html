@@ -168,6 +168,8 @@ $(function () {
     prevEquipmentTab.on("click", activatePrevTab);
 
     // Working with FAQ sections scripts
+
+    let faqTabItem = $(".tab-item--faq");
     function controlTabQuestionsMobileLabel(e) {
         e.preventDefault();
 
@@ -182,6 +184,6 @@ $(function () {
 
     }
 
-    tabItem.on("click", controlTabQuestionsMobileLabel);
+    faqTabItem.on("click", controlTabQuestionsMobileLabel);
 
 });
