@@ -186,4 +186,43 @@ $(function () {
 
     faqTabItem.on("click", controlTabQuestionsMobileLabel);
 
+    // Accordion scripts
+    let accordionHead = $(".accordion-head");
+
+    function showAccordionBody(e) {
+        e.preventDefault();
+        $this = $(this);
+        let relatedAccordionBody = $this.next();
+        let parentBlock = $this.parent();
+        let accordionHeadCollection = parentBlock.children(".accordion-head");
+        let accordionBodiesCollection = parentBlock.children(".accordion-body");
+
+        accordionHeadCollection.removeClass("active");
+        $this.addClass("active");
+
+        accordionBodiesCollection.removeClass("active");
+        relatedAccordionBody.addClass("active");
+    }
+
+    accordionHead.on("click", showAccordionBody);
+
+    // Accordion FAQ script
+    let faqAccordionHead = $(".accordion-head.faq-question--mobile-only");
+
+    function handleFaqAccordion(e){
+        e.preventDefault();
+        $this = $(this);
+        let relatedAccordionBody = $this.next();
+        let currentId = relatedAccordionBody.attr("id") || "";
+        let relatedAccordionTabId = currentId + "-tab";
+
+        let tabItemsCollection = $this.parent().parent().find(".tab-list--faq");
+        let activeTabItem = tabItemsCollection.find("#" + relatedAccordionTabId);
+
+        tabItemsCollection.find(".tab-item").removeClass("active");
+        activeTabItem.parent().addClass("active");
+
+    }
+
+    faqAccordionHead.on("click", handleFaqAccordion);
 });
