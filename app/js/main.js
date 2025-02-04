@@ -166,4 +166,64 @@ $(function () {
 
     nextEquipmentTab.on("click", activateNextTab);
     prevEquipmentTab.on("click", activatePrevTab);
+
+
+    // Working with FAQ sections scripts
+
+    let faqTabItem = $(".tab-item--faq");
+    function controlTabQuestionsMobileLabel(e) {
+        e.preventDefault();
+
+        let $this = $(this);
+        let tabTarget = $this.children("a").attr("href");
+
+        // Manage Tab Content
+        let $tabContainer = $this.parent().siblings(".tab-content");
+        let $mobileQuestionLabels = $tabContainer.children(".faq-question--mobile-only");
+        $mobileQuestionLabels.removeClass("active");
+        $tabContainer.find(tabTarget).prev().addClass("active");
+
+    }
+
+    faqTabItem.on("click", controlTabQuestionsMobileLabel);
+
+    // Accordion scripts
+    let accordionHead = $(".accordion-head");
+
+    function showAccordionBody(e) {
+        e.preventDefault();
+        $this = $(this);
+        let relatedAccordionBody = $this.next();
+        let parentBlock = $this.parent();
+        let accordionHeadCollection = parentBlock.children(".accordion-head");
+        let accordionBodiesCollection = parentBlock.children(".accordion-body");
+
+        accordionHeadCollection.removeClass("active");
+        $this.addClass("active");
+
+        accordionBodiesCollection.removeClass("active");
+        relatedAccordionBody.addClass("active");
+    }
+
+    accordionHead.on("click", showAccordionBody);
+
+    // Accordion FAQ script
+    let faqAccordionHead = $(".accordion-head.faq-question--mobile-only");
+
+    function handleFaqAccordion(e){
+        e.preventDefault();
+        $this = $(this);
+        let relatedAccordionBody = $this.next();
+        let currentId = relatedAccordionBody.attr("id") || "";
+        let relatedAccordionTabId = currentId + "-tab";
+
+        let tabItemsCollection = $this.parent().parent().find(".tab-list--faq");
+        let activeTabItem = tabItemsCollection.find("#" + relatedAccordionTabId);
+
+        tabItemsCollection.find(".tab-item").removeClass("active");
+        activeTabItem.parent().addClass("active");
+
+    }
+
+    faqAccordionHead.on("click", handleFaqAccordion);
 });

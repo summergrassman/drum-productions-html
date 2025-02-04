@@ -5,6 +5,9 @@
   color: $backgroundColorOne;
   text-transform: uppercase;
   margin-bottom: 7.5rem;
+  @include mq-inv-tablet-minified {
+    margin-bottom: 4.375rem;
+  }
   & .yellow-color-text {
     color: $accentColor
   }
