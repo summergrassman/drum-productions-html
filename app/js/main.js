@@ -167,4 +167,21 @@ $(function () {
     nextEquipmentTab.on("click", activateNextTab);
     prevEquipmentTab.on("click", activatePrevTab);
 
+    // Working with FAQ sections scripts
+    function controlTabQuestionsMobileLabel(e) {
+        e.preventDefault();
+
+        let $this = $(this);
+        let tabTarget = $this.children("a").attr("href");
+
+        // Manage Tab Content
+        let $tabContainer = $this.parent().siblings(".tab-content");
+        let $mobileQuestionLabels = $tabContainer.children(".faq-question--mobile-only");
+        $mobileQuestionLabels.removeClass("active");
+        $tabContainer.find(tabTarget).prev().addClass("active");
+
+    }
+
+    tabItem.on("click", controlTabQuestionsMobileLabel);
+
 });

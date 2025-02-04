@@ -1,0 +1,133 @@
+.section--faq {
+  background-color: $greyWhiteColor;
+  padding-bottom: 9.25rem;
+  & .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & .faq-block-wrapper {
+    padding: 0 4.0625rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    @include mq-inv-tablet-minified {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    @include mq-inv-small {
+      padding: 0;
+    }
+    & .faq-question-number {
+      font-weight: bold;
+      color: $lightGreyColor;
+      transition: all 0.5s ease;
+    }
+    & .tab-list--faq {
+      width:49%;
+      @include mq-inv-tablet-minified {
+        width: 100%;
+        display: none;
+      }
+      & .tab-item--faq {
+        cursor: pointer;
+        padding: 0 1.875rem;
+        height: 2.75rem;
+        line-height: 1.2;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        justify-content: center;
+        font-weight: 300;
+        text-align: left;
+        transition: all 0.5s ease;
+        box-shadow: none;
+        @include mq-inv-tablet-minified {
+          text-align: center;
+        }
+        &:hover {
+          & .tab-link {
+            & .faq-question-number {
+              color: $backgroundColorOne;
+            }
+          }
+        }
+        &.active {
+          background-color: $accentColor;
+          transition: all 0.5s ease;
+          box-shadow: 0 6px 20px 0 rgba(170, 170, 170, 0.8);
+        }
+        & .tab-link {
+          color: $backgroundColorOne;
+        }
+      }
+    }
+
+    & .tab-content--faq {
+      width:49%;
+      @include mq-inv-tablet-minified {
+        width: 100%
+      }
+      & .faq-question--mobile-only {
+        display: none;
+        margin-bottom: 1.25rem;
+        padding: 0 1.25rem;
+        border-radius: 20px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 0.875rem;
+        line-height: 1.2;
+        min-height: 2.75rem;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          & .faq-question-number {
+            color: $backgroundColorOne;
+          }
+        }
+        &.active {
+          background-color: $accentColor;
+          color: $backgroundColorOne;
+        }
+        @include mq-inv-tablet-minified {
+          display: flex;
+        }
+      }
+      & .tab-pane--faq {
+        display: none;
+        height: 100%;
+        &.active {
+          display: block;
+        }
+        & .tab-pane-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background: $whiteColor;
+          border-radius: 20px;
+          box-shadow: 0 6px 20px 0 rgba(170, 170, 170, 0.8);
+          padding: 1.25rem;
+          height: 100%;
+          & .faq-answer {
+            & p {
+              font-size: 0.875rem;
+              font-weight: 300;
+              line-height: 1.2;
+              color: $greyColorText;
+              margin-bottom: 25px;
+              @include mq-inv-tablet-minified {
+                text-align: center;
+              }
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
