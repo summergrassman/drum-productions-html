@@ -167,6 +167,7 @@ $(function () {
     nextEquipmentTab.on("click", activateNextTab);
     prevEquipmentTab.on("click", activatePrevTab);
 
+
     // Working with FAQ sections scripts
 
     let faqTabItem = $(".tab-item--faq");
