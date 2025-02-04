@@ -1,0 +1,23 @@
+.section--gallery {
+  & .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & .gallery-wrapper-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.875rem;
+    padding: 0 4.0625rem;
+    & .gallery-item-wrapper {
+      & .gallery-item-link {
+        display: block;
+        position: relative;
+        & .gallery-zoom-decor {
+          
+        }
+      }
+    }
+  }
+}
