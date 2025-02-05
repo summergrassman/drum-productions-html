@@ -1,0 +1,46 @@
+.section--contact {
+  background-color: $greyWhiteColor;
+  padding-bottom: 9.25rem;
+  & .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & .contact-content-wrapper {
+    width: 100%;
+    padding: 0 4.0625rem;
+    @include mq-inv-tablet-minified {
+      padding: 0 0.9375rem;
+    }
+  }
+
+  & .contact-form-wrapper {
+    margin-bottom: 5rem;
+    & .contact-input-group {
+      margin-bottom: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1.25rem 0.625rem;
+      @include mq-inv-tablet-minified {
+        grid-template-columns: 1fr;
+      }
+    }
+    & .contact-textarea-block {
+      margin-bottom: 1.25rem;
+
+      & .contact-main-form-message {
+        min-height: 11.25rem;
+      }
+    }
+
+    & .contact-form-button-wrapper {
+      display: flex;
+      justify-content: center;
+      & .contact-submit-button {
+        width: 100%;
+        max-width: 27.5rem;
+      }
+    }
+  }
+}
