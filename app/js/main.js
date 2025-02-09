@@ -225,4 +225,31 @@ $(function () {
     }
 
     faqAccordionHead.on("click", handleFaqAccordion);
+
+    // Modal Scripts
+    let triggerModalButton = $(".button-trigger-modal");
+    let closeModalButton = $(".button-close-modal");
+    let modalBlock = $(".modal");
+    let modalDialog = $(".modal-dialog");
+
+    function openModal(e) {
+        e.preventDefault();
+        $(".modal-core-element").addClass("modal--show");
+    }
+
+    function closeModalItself(e) {
+        e.preventDefault();
+        if (!$(e.target).closest(modalDialog).length) {
+            $(".modal-core-element").removeClass("modal--show");
+        }
+    }
+
+    function closeModal(e) {
+        e.preventDefault();
+        $(".modal-core-element").removeClass("modal--show");
+    }
+
+    triggerModalButton.on("click", openModal);
+    modalBlock.on("click", closeModalItself);
+    closeModalButton.on("click", closeModal);
 });
