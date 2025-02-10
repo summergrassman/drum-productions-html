@@ -1,0 +1,178 @@
+.opened-modal {
+  & .modal {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+.modal {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0,0,0, 0.5);
+  top: 0;
+  @include mq-inv-tablet-minified {
+    justify-content: flex-start;
+  }
+  &.modal--show {
+    display: flex;
+  }
+  & .modal-dialog {
+    width: 95%;
+    max-width: 67.5rem;
+    position: relative;
+    margin: 1.75rem auto;
+    & .modal-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: $whiteColor;
+      border-radius: 0.5rem;
+      outline: 0;
+      & .modal-body {
+        padding: 5rem;
+        background-color: $greyWhiteColor;
+        border-radius: 0.5rem;
+        @include mq-inv-tablet-minified {
+          padding: 5rem 1.25rem;
+        }
+        & .modal-heading {
+          font-size: 3rem;
+          line-height: 1.2;
+          font-weight: bold;
+          color: $backgroundColorOne;
+          text-transform: uppercase;
+          text-align: center;
+          margin-bottom: 4.375rem;
+        }
+        & .modal-input-group {
+          margin-bottom: 1.875rem;
+          display: grid;
+          grid-row-gap: 1.875rem;
+          &.modal-input-group--customer-basic-info {
+            grid-template-columns: 1fr 2fr;
+            grid-column-gap: 1.875rem;
+            @include mq-inv-tablet-minified {
+              grid-template-columns: 1fr;
+            }
+          }
+          &.modal-input-group--customer-company-info {
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 1.875rem;
+            @include mq-inv-tablet-minified {
+              grid-template-columns: 1fr;
+            }
+          }
+          &.modal-input-group--customer-project-info {
+            grid-template-columns: 4fr 5fr 3fr;
+            grid-column-gap: 0.9375rem;
+            @include mq-inv-tablet-minified {
+              grid-template-columns: 1fr;
+            }
+          }
+
+          & .custom-file-upload {
+            display: block;
+            position: relative;
+            width: 100%;
+            & .custom-file-upload-mask {
+              display: flex;
+              background-color: $accentColor;
+              color: $backgroundColorOne;
+              width: 100%;
+              transition: all 0.5s ease;
+              &:hover {
+                background-color: $accentColorDarker;
+                cursor: pointer;
+                & .button-icon-wrapper {
+                  color: $accentColor;
+                  background-color: $backgroundColorOne;
+                }
+              }
+              & .button-icon-wrapper {
+                text-indent: 0;
+                color: $backgroundColorOne;
+                background-color: $accentColorDarker;
+                transition: all 0.5s ease;
+              }
+              & .upload-label-hide-on-mobile {
+                @include mq-inv-tablet-minified {
+                  display: none;
+                }
+              }
+            }
+            & .file-upload-modal {
+              display: none;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              opacity: 0;
+              top: 0;
+              left: 0;
+              z-index: 1;
+            }
+          }
+
+          & .button-upload-control {
+            width: 100%;
+            color: $backgroundColorOne;
+            background-color: $lightGreyColorThree;
+            transition: all 0.5s ease;
+            &:hover {
+              background-color: $backgroundColorOne;
+              color: $whiteColor;
+              & .button-icon-wrapper {
+                background-color: $backgroundColorOne;
+                color: $whiteColor;
+                transition: all 0.5s ease;
+              }
+            }
+            & .button-icon-wrapper {
+              background-color: $lightGreyColorFour;
+              color: $backgroundColorOne;
+              transition: all 0.5s ease;
+            }
+          }
+        }
+
+        & .modal-textarea-wrapper {
+          margin-bottom: 1.875rem;
+          & .modal-main-form-message {
+            min-height: 8.75rem;
+          }
+        }
+
+        & .modal-form-button-wrapper {
+          display: flex;
+          justify-content: center;
+          & .modal-submit-button {
+            width: 100%;
+            max-width: 27.5rem;
+          }
+        }
+      }
+      & .button-close-modal {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 4.375rem;
+        width: 4.375rem;
+        border-radius: 0.5rem;
+        transition: all 0.5s ease;
+        font-size: 1.5rem;
+        line-height: 1;
+        opacity: 0.5;
+        &:hover {
+          opacity: 1;
+          background-color: $whiteColor;
+        }
+      }
+    }
+  }
+}
