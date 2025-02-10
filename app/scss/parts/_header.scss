@@ -25,7 +25,7 @@ body {
         position: fixed;
         top: 0;
         padding: 1.5rem 0;
-        z-index: 100;
+        z-index: 1000;
         border-top: 1px solid $accentColor;
         background-color: $backgroundColorOne;
         & .main-menu-logo-link {
