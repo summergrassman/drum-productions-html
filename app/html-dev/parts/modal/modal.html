@@ -61,15 +61,22 @@
                                     </label>
                                 </div>
                                 <div class="modal-input-it">
-                                    <label class="custom-file-upload form-control form-input-field">
+                                    <label for="modal-upload-file" class="custom-file-upload form-control form-input-field">
                                         <span class="general-button general-button--with-icon custom-file-upload-mask">
-                                            <span class="button-icon-wrapper"><i class="fas fa-check" aria-hidden="true"></i></span>
+                                            <span class="button-icon-wrapper">
+                                                <i class="fa-solid fa-check"></i>
+                                            </span>
                                             <span class="upload-button-label">
                                               Upload
                                                 <span class="upload-label-hide-on-mobile">audio stem</span>
                                             </span>
                                        </span>
-                                        <input class="file-upload form-input-field" name="file_array[]" type="file" required="" multiple="">
+                                        <input id="modal-upload-file"
+                                               class="file-upload file-upload-modal"
+                                               name="uploaded-files"
+                                               type="file"
+                                               required=""
+                                               multiple="">
                                     </label>
                                 </div>
                                 <div class="modal-input-it">
