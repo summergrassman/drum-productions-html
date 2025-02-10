@@ -1,3 +1,11 @@
+.opened-modal {
+  & .modal {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+
 .modal {
   display: none;
   flex-direction: column;
@@ -9,6 +17,9 @@
   z-index: 1000;
   background-color: rgba(0,0,0, 0.5);
   top: 0;
+  @include mq-inv-tablet-minified {
+    justify-content: flex-start;
+  }
   &.modal--show {
     display: flex;
   }
@@ -29,6 +40,61 @@
         padding: 5rem;
         background-color: $greyWhiteColor;
         border-radius: 0.5rem;
+        & .modal-heading {
+          font-size: 3rem;
+          line-height: 1.2;
+          font-weight: bold;
+          color: $backgroundColorOne;
+          text-transform: uppercase;
+          text-align: center;
+          margin-bottom: 4.375rem;
+        }
+        & .modal-input-group {
+          margin-bottom: 1.875rem;
+          display: grid;
+          grid-row-gap: 1.875rem;
+          &.modal-input-group--customer-basic-info {
+            grid-template-columns: 1fr 2fr;
+            grid-column-gap: 1.875rem;
+            @include mq-inv-tablet-minified {
+              grid-template-columns: 1fr;
+            }
+          }
+          &.modal-input-group--customer-company-info {
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 1.875rem;
+            @include mq-inv-tablet-minified {
+              grid-template-columns: 1fr;
+            }
+          }
+          &.modal-input-group--customer-project-info {
+            grid-template-columns: 4fr 5fr 3fr;
+            grid-column-gap: 0.9375rem;
+            @include mq-inv-tablet-minified {
+              grid-template-columns: 1fr;
+            }
+          }
+
+          & .button-upload-control {
+            width: 100%;
+          }
+        }
+
+        & .modal-textarea-wrapper {
+          margin-bottom: 1.875rem;
+          & .modal-main-form-message {
+            min-height: 8.75rem;
+          }
+        }
+
+        & .modal-form-button-wrapper {
+          display: flex;
+          justify-content: center;
+          & .modal-submit-button {
+            width: 100%;
+            max-width: 27.5rem;
+          }
+        }
       }
       & .button-close-modal {
         position: absolute;

@@ -235,18 +235,21 @@ $(function () {
     function openModal(e) {
         e.preventDefault();
         $(".modal-core-element").addClass("modal--show");
+        $("body").addClass("opened-modal");
     }
 
     function closeModalItself(e) {
         e.preventDefault();
         if (!$(e.target).closest(modalDialog).length) {
             $(".modal-core-element").removeClass("modal--show");
+            $("body").removeClass("opened-modal");
         }
     }
 
     function closeModal(e) {
         e.preventDefault();
         $(".modal-core-element").removeClass("modal--show");
+        $("body").removeClass("opened-modal");
     }
 
     triggerModalButton.on("click", openModal);

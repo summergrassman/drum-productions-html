@@ -1,28 +1,98 @@
 <div class="modal modal-core-element">
     <div class="modal-dialog">
-       <div class="modal-content">
-           <div class="modal-body">
-               <h2 class="modal-heading"></h2>
-               <button class="button-close-modal">
-                   <i class="fas fa-times" aria-hidden="true"></i>
-               </button>
-               <div class="modal-form-wrapper">
-                   <div class="general-form-block">
-                       <form class="general-form general-form--modal" action="#">
-                           <div class="modal-input-group modal-input-group--customer-basic-info">
-                               <div class="contact-input-it">
-                                   <label class="form-input-label" for="username">Name</label>
-                                   <input type="text" id="username" class="form-input-field contact-username" name="username"
-                                          required="">
-                               </div>
-                           </div>
-                           <div class="contact-form-button-wrapper">
-                               <input type="submit" value="Send Message" class="form-submit-button contact-submit-button">
-                           </div>
-                       </form>
-                   </div>
-               </div>
-           </div>
-       </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2 class="modal-heading">Work with me</h2>
+                <button class="button-close-modal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+                <div class="modal-form-wrapper">
+                    <div class="general-form-block">
+                        <form class="general-form general-form--modal" action="#">
+                            <div class="modal-input-group modal-input-group--customer-basic-info">
+                                <div class="modal-input-it">
+                                    <label class="form-input-label" for="customerName">Name of Customer</label>
+                                    <input type="text" id="customerName" class="form-input-field modal-customer-name"
+                                           name="customerName"
+                                           required="">
+                                </div>
+                                <div class="modal-input-it">
+                                    <label class="form-input-label" for="customerAddress">Address (Street, House Number,
+                                        Town, ZIP Code)</label>
+                                    <input type="text" id="customerAddress"
+                                           class="form-input-field modal-customer-address" name="customerAddress"
+                                           required="">
+                                </div>
+                            </div>
+                            <div class="modal-input-group modal-input-group--customer-company-info">
+                                <div class="modal-input-it">
+                                    <label class="form-input-label" for="companyName">Company name</label>
+                                    <input type="text" id="companyName" class="form-input-field modal-company-name"
+                                           name="companyName"
+                                           required="">
+                                </div>
+                                <div class="modal-input-it">
+                                    <label class="form-input-label" for="customerVat">VAT</label>
+                                    <input type="text" id="customerVat" class="form-input-field modal-customer-vat"
+                                           name="customerVat"
+                                           required="">
+                                </div>
+                                <div class="modal-input-it">
+                                    <label class="form-input-label" for="customerCountry">Country</label>
+                                    <input type="text" id="customerCountry"
+                                           class="form-input-field modal-customer-country" name="customerCountry"
+                                           required="">
+                                </div>
+                            </div>
+                            <div class="modal-input-group modal-input-group--customer-project-title">
+                                <div class="modal-input-it">
+                                    <label class="form-input-label" for="projectTitle">Project Title</label>
+                                    <input type="text" id="projectTitle"
+                                           class="form-input-field modal-company-project-title" name="projectTitle"
+                                           required="">
+                                </div>
+                            </div>
+                            <div class="modal-input-group modal-input-group--customer-project-info">
+                                <div class="modal-input-it">
+                                    <label class="empty-label-wrapper">
+                                        <input type="text" class="form-input-field modal-file-name"
+                                               name="customerFileName"
+                                               value readonly>
+                                    </label>
+                                </div>
+                                <div class="modal-input-it">
+                                    <label class="custom-file-upload form-control form-input-field">
+                                        <span class="general-button general-button--with-icon custom-file-upload-mask">
+                                            <span class="button-icon-wrapper"><i class="fas fa-check" aria-hidden="true"></i></span>
+                                            <span class="upload-button-label">
+                                              Upload
+                                                <span class="upload-label-hide-on-mobile">audio stem</span>
+                                            </span>
+                                       </span>
+                                        <input class="file-upload form-input-field" name="file_array[]" type="file" required="" multiple="">
+                                    </label>
+                                </div>
+                                <div class="modal-input-it">
+                                    <div class="col-md-12 col-lg-3">
+                                        <button class="general-button general-button--with-icon button-upload-control button-upload-control--add-file" data-role="add">
+                                            <span class="button-icon-wrapper"><i class="fas fa-plus" aria-hidden="true"></i></span>
+                                            Add Stem
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-textarea-wrapper">
+                                <label class="form-input-label" for="modal-message-text">Message</label>
+                                <textarea class="modal-main-form-message form-textarea-field" id="modal-message-text" name="message" spellcheck="false"></textarea>
+                            </div>
+                            <div class="modal-form-button-wrapper">
+                                <input type="submit" value="Send"
+                                       class="form-submit-button modal-submit-button">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
