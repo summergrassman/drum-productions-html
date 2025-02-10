@@ -125,47 +125,48 @@ $(function () {
 
     tabItem.on("click", switchTab);
 
+    // Prev and Next buttons on Tab Content
+    $(document).ready(function () {
+        let nextEquipmentTab = $(".btn-next-equipment-item");
+        let prevEquipmentTab = $(".btn-prev-equipment-item");
 
-    // Control Equipment Tabs from Tab Content
-    let nextEquipmentTab = $(".btn-next-equipment-item");
-    let prevEquipmentTab = $(".btn-prev-equipment-item");
+        function activateNextTab(e) {
+            e.preventDefault();
+            let $this = $(this);
+            let $tabList = $this.closest(".tab-content").siblings(".tab-list");
 
-    function activateNextTab(e) {
-        e.preventDefault();
-        let $this = $(this);
-        let $tabList = $this.closest(".tab-content").siblings(".tab-list");
+            // Find the active tab item
+            let $activeTabItem = $tabList.find(".active").closest("li");
 
-        // Find the active tab item (li element)
-        let $activeTabItem = $tabList.find(".active").closest("li");
-
-        // Get the next tab item
-        let $nextTab = $activeTabItem.next("li");
-        if ($nextTab.length) {
-            $nextTab.find("a").trigger("click");
+            // Get the next tab item
+            let $nextTab = $activeTabItem.next("li");
+            if ($nextTab.length) {
+                $nextTab.find("a").trigger("click");
+            }
         }
-    }
 
-    function activatePrevTab(e) {
-        e.preventDefault();
-        let $this = $(this);
-        let $tabList = $this.closest(".tab-content").siblings(".tab-list");
+        function activatePrevTab(e) {
+            e.preventDefault();
+            let $this = $(this);
+            let $tabList = $this.closest(".tab-content").siblings(".tab-list");
 
-        // Find the active tab item (li element)
-        let $activeTabItem = $tabList.find(".active").closest("li");
+            // Find the active tab item
+            let $activeTabItem = $tabList.find(".active").closest("li");
 
-        // Get the previous tab item
-        let $prevTab = $activeTabItem.prev("li");
+            // Get the previous tab item
+            let $prevTab = $activeTabItem.prev("li");
 
-        // Check if there's a previous tab, if so, trigger click, otherwise do nothing
-        if ($prevTab.length) {
-            $prevTab.find("a").trigger("click");
-        } else {
-            console.log("No previous tab to navigate to.");
+            // Ensure prev button always works on the last tab
+            if ($prevTab.length) {
+                $prevTab.find("a").trigger("click");
+            } else {
+                console.log("No previous tab to navigate to.");
+            }
         }
-    }
 
-    nextEquipmentTab.on("click", activateNextTab);
-    prevEquipmentTab.on("click", activatePrevTab);
+        nextEquipmentTab.on("click", activateNextTab);
+        prevEquipmentTab.on("click", activatePrevTab);
+    });
 
     // Working with FAQ sections scripts
 
